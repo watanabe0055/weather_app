@@ -1,12 +1,10 @@
 import React from "react";
-import { WeatherData } from "./components/page/WeatherData";
-import logo from "./logo.svg";
-// import "./App.css";
+import { Weather } from "./components/page/Weather";
 
 function App() {
   return (
     <div className="App">
-      <WeatherData></WeatherData>
+      <Weather></Weather>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export const Weather = (props: any) => {
+export const WeatherFetch = (props: any) => {
   const [area, setArea] = useState();
   const [headline, setHeadline] = useState();
   const [text, setText] = useState();
