@@ -11,13 +11,21 @@ export const Weather = (props: any) => {
   `;
   const Textarea = styled.p`
     white-space: pre-wrap;
+    line-height: 1.2em;
   `;
   const ContentsItem = styled.div`
     margin: 0 auto;
     padding: 25px 15px;
-    width: 900px;
+    width: 940px;
     border: 2px solid #e8e8e8;
     background-color: #e8fcf3;
+  `;
+  const Heading = styled.p`
+    padding: 5px 10px;
+    border-left: 4px solid #4dc0b2;
+  `;
+  const WeatherInfo = styled.p`
+    margin-left: 25px;
   `;
 
   useEffect(() => {
@@ -25,10 +33,10 @@ export const Weather = (props: any) => {
       const url: string = `https://www.jma.go.jp/bosai/forecast/data/overview_forecast/${props.url}.json`;
       const response: any = await fetch(url);
       const reslut: any = await response.json();
-      console.log(reslut);
+
       const weatherDate = {
         area: reslut.targetArea,
-        headline: reslut.headlineText,
+        headline: reslut.headlineText || "特に情報は出ていません",
         text: reslut.text,
       };
       setArea(weatherDate.area);
@@ -42,14 +50,30 @@ export const Weather = (props: any) => {
     <>
       <Contents>
         <ContentsItem>
-          <p>エリア</p>
-          <p>{area}</p>
-          <p>ヘッドライン</p>
-          <p>{headline}</p>
-          <p>詳細</p>
+          <Heading>エリア</Heading>
+          <WeatherInfo>{area}</WeatherInfo>
+          <Heading>ヘッドライン</Heading>
+          <WeatherInfo>{headline}</WeatherInfo>
+          <Heading>詳細</Heading>
           <Textarea>{text}</Textarea>
         </ContentsItem>
       </Contents>
     </>
   );
+};
+
+const cssInJs = () => {
+  const Contents = styled.div`
+    margin-top: 30px;
+  `;
+  const Textarea = styled.p`
+    white-space: pre-wrap;
+  `;
+  const ContentsItem = styled.div`
+    margin: 0 auto;
+    padding: 25px 15px;
+    width: 900px;
+    border: 2px solid #e8e8e8;
+    background-color: #e8fcf3;
+  `;
 };
