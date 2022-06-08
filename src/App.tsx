@@ -1,13 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
-// import "./App.css";
-
-import { Weather } from "./WeatherFetch";
+import { Weather } from "./components/page/Weather";
 
 function App() {
   return (
     <div className="App">
-      <Weather />
+      <Weather></Weather>
     </div>
   );
 }
