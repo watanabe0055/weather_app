@@ -5,7 +5,13 @@ import { WeatherUrl } from "../weather/WeatherUrl";
 import { WeatherFetch } from "../weather/WeatherFetch";
 export const Weather = () => {
   const res = WeatherUrl();
-  console.log(res[1]);
-
-  return <WeatherFetch url={"110000"} />;
+  const listItems = res.map((res) => (
+    <WeatherFetch key={res.toString()}>{res[1]}</WeatherFetch>
+  ));
+  return (
+    <>
+      {/* <WeatherFetch url={res[0][1]} /> */}
+      <div>{listItems}</div>
+    </>
+  );
 };

@@ -1,5 +1,5 @@
 export const WeatherUrl = () => {
-  const area: string[][] = [
+  const area: { [key: number]: string }[] = [
     //北海道,
     ["宗谷地方", "011000"],
     ["上川・留萌地方", "012000"],
